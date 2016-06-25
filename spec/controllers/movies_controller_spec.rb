@@ -17,6 +17,13 @@ RSpec.describe MoviesController, type: :controller do
 
       expect(assigns(:movies)).to eq([movie])
     end
+
+    it "accept query movies by its title" do
+      allow(Movie).to receive(:search)
+      get :index, {q: "Dory"}
+
+      expect(Movie).to have_received(:search).with("Dory")
+    end
   end
 
   describe "GET #show" do

@@ -2,6 +2,13 @@
 
 <h1>Listing Movies</h1>
 
+<%= form_tag(movies_path, method: :get) do %>
+  <%= text_field_tag :q, @search_text,
+        placeholder: "Search by title" %>
+
+  <%= submit_tag "Search" %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -22,9 +29,9 @@
         <td><%= movie.release_date %></td>
         <td><%= movie.genre_list %></td>
         <td><%= movie.imdb_link %></td>
-        <td><%= link_to 'Show', movie %></td>
+        <td><%= link_to 'Show', movie_path(movie.id) %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', movie_path(movie.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

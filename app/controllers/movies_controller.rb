@@ -3,7 +3,13 @@ class MoviesController < ApplicationController
 
   # GET /movies
   def index
-    @movies = Movie.all
+    @movies =
+      if params[:q].present?
+        @search_text = params[:q]
+        Movie.search(@search_text)
+      else
+        Movie.all
+      end
   end
 
   # GET /movies/1

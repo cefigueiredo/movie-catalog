@@ -11,7 +11,7 @@ class Movie < ActiveRecord::Base
 
   validates :title, presence: true
 
-  def self.search2(text)
+  def self.search(text)
     self.__elasticsearch__.search({
       query: {
         fuzzy: {
@@ -19,14 +19,5 @@ class Movie < ActiveRecord::Base
         }
       }
     })
-  end
-
-  def as_indexed_json(options = {})
-    as_json(
-      only: [
-        :id, :title, :storyline, :release_date, :genre_list, :imdb_link
-      ],
-      methods: [:genre_list]
-    )
   end
 end
