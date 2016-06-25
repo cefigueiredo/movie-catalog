@@ -13,6 +13,9 @@ gem 'puma'
 
 gem 'acts-as-taggable-on'
 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'

@@ -26,4 +26,21 @@ RSpec.describe Movie, type: :model do
       expect(model.genres).to include(tag2)
     end
   end
+
+  describe ".search" do
+    let(:elasticsearch) { double("ElasticSearch::Model::Proxy") }
+
+    before do
+      allow(Movie).to receive(:__elasticsearch__).and_return(elasticsearch)
+      allow(elasticsearch).to receive(:search)
+    end
+
+    it "call __elasticsearch__ search" do
+      Movie.search("Some title")
+
+      expect(elasticsearch).to have_received(:search).with(
+        {query: {fuzzy: {title: "Some title"} } }
+      )
+    end
+  end
 end
