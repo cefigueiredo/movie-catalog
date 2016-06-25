@@ -5,10 +5,28 @@
 }
 
 .movie {
-  border: 1px #CCC8C8 solid; 
+  border: 1px #998253 solid; 
   margin: 5px;
   padding: 0px 10px;
-  background-color: snow;
+  background-color: floralwhite;
   flex-grow: 1;
   flex-basis: 400px;
+  align-self: auto;
+  position: relative;
+
+  .rows {
+    width: 150px;
+    float: left;
+  }
+
+  .storyline {
+    margin-left: 150px; 
+    width: 250px;
+  }
+
+  .actions {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+  }
 }
