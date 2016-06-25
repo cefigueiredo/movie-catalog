@@ -11,6 +11,8 @@ gem 'turbolinks'
 
 gem 'puma'
 
+gem 'acts-as-taggable-on'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
