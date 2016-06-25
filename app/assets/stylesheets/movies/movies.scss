@@ -1,0 +1,14 @@
+.movie_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.movie {
+  border: 1px #CCC8C8 solid; 
+  margin: 5px;
+  padding: 0px 10px;
+  background-color: snow;
+  flex-grow: 1;
+  flex-basis: 400px;
+}

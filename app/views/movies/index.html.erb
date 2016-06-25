@@ -9,6 +9,37 @@
   <%= submit_tag "Search" %>
 <% end %>
 
+<%= link_to 'New Movie', new_movie_path %>
+<%= paginate @movies %>
+<div class="movie_list">
+  <% @movies.each do |movie| %>
+    <div class="movie">
+      <h3> <%= link_to movie.title, movie_path(movie.id) %></h3>
+      <div class="rows">
+        <div class="row">
+          <label>Release date: </label>
+          <span><%= movie.release_date %>
+        </div>
+        <div class="row">
+          <label>Genres</label>
+          <span><%= movie.genre_list %>
+        </div>
+        <div class="row">
+          <label>Link Imdb</label>
+          <span><%= movie.imdb_link %>
+        </div>
+      </div>
+      <div class="storyline">
+        <%= movie.storyline %>
+      </div>
+      <div class="actions">
+        <%= link_to 'Edit', edit_movie_path(movie) %>
+        <%= link_to 'Destroy', movie_path(movie.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<!--
 <table>
   <thead>
     <tr>
@@ -37,7 +68,6 @@
     <%= paginate @movies %>
   </tbody>
 </table>
-
+-->
 <br>
 
-<%= link_to 'New Movie', new_movie_path %>
