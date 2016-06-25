@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: movie-catalog_production
-  username: movie-catalog
-  password: <%= ENV['MOVIE-CATALOG_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

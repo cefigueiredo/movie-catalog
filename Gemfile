@@ -16,7 +16,10 @@ gem 'kaminari'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
+  gem 'dotenv'
   gem 'pry-byebug'
   gem 'rspec-rails'
 end
