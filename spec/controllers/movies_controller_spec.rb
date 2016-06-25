@@ -19,7 +19,7 @@ RSpec.describe MoviesController, type: :controller do
     end
 
     it "accept query movies by its title" do
-      allow(Movie).to receive(:search)
+      allow(Movie).to receive(:search).and_return(Movie.all)
       get :index, {q: "Dory"}
 
       expect(Movie).to have_received(:search).with("Dory")

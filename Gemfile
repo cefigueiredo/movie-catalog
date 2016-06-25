@@ -12,7 +12,7 @@ gem 'turbolinks'
 gem 'puma'
 
 gem 'acts-as-taggable-on'
-
+gem 'kaminari'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 

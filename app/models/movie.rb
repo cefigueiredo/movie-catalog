@@ -18,6 +18,6 @@ class Movie < ActiveRecord::Base
           title: text
         }
       }
-    })
+    }).records
   end
 end
