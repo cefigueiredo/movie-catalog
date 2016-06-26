@@ -2,32 +2,34 @@
 
 <h1>Movies</h1>
 
-<%= form_tag(movies_path, method: :get) do %>
-  <%= text_field_tag :q, @search_text,
-        placeholder: "Search by title" %>
+<div class="interactions">
+  <%= form_tag(movies_path, method: :get) do %>
+    <%= text_field_tag :q, @search_text,
+          placeholder: "Search by title" %>
 
-  <%= submit_tag "Search" %>
-<% end %>
+    <%= submit_tag "Search" %>
+  <% end %>
 
-<%= link_to 'New Movie', new_movie_path %>
-<%= paginate @movies %>
+  <%= link_to 'New Movie', new_movie_path, class: 'add-movie' %>
+</div>
+
 <div class="movie_list">
   <% @movies.each do |movie| %>
     <div class="movie">
       <h3> <%= link_to movie.title, movie_path(movie.id) %></h3>
       <div class="rows">
         <div class="row">
-          <label>Release date: </label>
-          <div><%= movie.release_date %> </div>
+          <span>Release date: <%= movie.release_date %> </span>
         </div>
         <div class="row">
-          <label>Genres</label>
-          <div><%= movie.genre_list %></div>
+          <label>Genres:</label>
+          <span><%= movie.genre_list %></span>
         </div>
-        <div class="row">
-          <label>Link Imdb</label>
-          <span><%= movie.imdb_link %></span>
-        </div>
+        <% if movie.imdb_link %>
+          <div class="row">
+            <%= link_to "See on IMDB", movie.imdb_link, target: :blank %>
+          </div>
+        <% end %>
       </div>
       <div class="storyline">
         <%= movie.storyline %>

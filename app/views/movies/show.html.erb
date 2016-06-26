@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @movie.title %>
-</p>
+<div class="movie">
 
-<p>
-  <strong>Storyline:</strong>
-  <%= @movie.storyline %>
-</p>
+  <h1><%= @movie.title %></h1>
 
-<p>
-  <strong>Release date:</strong>
-  <%= @movie.release_date %>
-</p>
+  <p>
+    <strong>Storyline:</strong>
+    <%= @movie.storyline %>
+  </p>
 
-<p>
-  <strong>Genres:</strong>
-  <%= @movie.genre_list %>
-</p>
+  <p>
+    <strong>Release date:</strong>
+    <%= @movie.release_date %>
+  </p>
 
-<p>
-  <strong>Imdb link:</strong>
-  <%= @movie.imdb_link %>
-</p>
+  <p>
+    <strong>Genres:</strong>
+    <%= @movie.genre_list %>
+  </p>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+  <p>
+    <strong>Imdb link:</strong>
+    <%= @movie.imdb_link %>
+  </p>
+
+  <%= link_to 'Edit', edit_movie_path(@movie) %> |
+  <%= link_to 'Back', movies_path %>
+</div>

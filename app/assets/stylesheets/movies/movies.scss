@@ -1,32 +1,65 @@
+h1 {
+  text-align: center;
+}
+
+input {
+  line-height: 22px;
+  font-size: 14px;
+}
+
+.interactions {
+  position: relative;
+  margin: 5px;
+  vertical-align: center;
+
+  input[type=text] {
+    width: 200px;
+  }
+
+  .add-movie {
+    position: absolute;
+    top: 6px;
+    right: 0px;
+  }
+}
+
 .movie_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+
+  .movie {
+    flex-grow: 1;
+    flex-basis: 400px;
+    align-self: auto;
+    position: relative;
+
+    h3 {
+      margin: 10px 0px;
+      max-width: 350px;
+    }
+
+    .rows {
+      width: 180px;
+      float: left;
+    }
+
+    .storyline {
+      margin-left: 190px; 
+      width: 250px;
+    }
+
+    .actions {
+      position: absolute;
+      top: 10px;
+      right: 5px;
+    }
+  }
 }
 
 .movie {
   border: 1px #998253 solid; 
   margin: 5px;
-  padding: 0px 10px;
+  padding: 0px 10px 10px 10px;
   background-color: floralwhite;
-  flex-grow: 1;
-  flex-basis: 400px;
-  align-self: auto;
-  position: relative;
-
-  .rows {
-    width: 150px;
-    float: left;
-  }
-
-  .storyline {
-    margin-left: 150px; 
-    width: 250px;
-  }
-
-  .actions {
-    position: absolute;
-    top: 10px;
-    right: 5px;
-  }
 }
