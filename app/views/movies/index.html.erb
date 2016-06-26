@@ -16,27 +16,32 @@
 <div class="movie_list">
   <% @movies.each do |movie| %>
     <div class="movie">
-      <h3> <%= link_to movie.title, movie_path(movie.id) %></h3>
-      <div class="rows">
-        <div class="row">
-          <span>Release date: <%= movie.release_date %> </span>
+      <div class="flex-content">
+        <h3 class="title"> <%= link_to movie.title, movie_path(movie.id) %></h3>
+
+        <div class="actions">
+          <%= link_to 'Edit', edit_movie_path(movie) %>
+          <%= link_to 'Destroy', movie_path(movie.id), method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
-        <div class="row">
-          <label>Genres:</label>
-          <span><%= movie.genre_list %></span>
-        </div>
-        <% if movie.imdb_link %>
+      </div>
+      <div class="flex-content">
+        <div class="rows">
           <div class="row">
-            <%= link_to "See on IMDB", movie.imdb_link, target: :blank %>
+            <span>Release date: <%= movie.release_date %> </span>
           </div>
-        <% end %>
-      </div>
-      <div class="storyline">
-        <%= movie.storyline %>
-      </div>
-      <div class="actions">
-        <%= link_to 'Edit', edit_movie_path(movie) %>
-        <%= link_to 'Destroy', movie_path(movie.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="row">
+            <label>Genres:</label>
+            <span><%= movie.genre_list %></span>
+          </div>
+          <% if movie.imdb_link %>
+            <div class="row">
+              <%= link_to "See on IMDB", movie.imdb_link, target: :blank %>
+            </div>
+          <% end %>
+        </div>
+        <div class="storyline">
+          <%= movie.storyline %>
+        </div>
       </div>
     </div>
   <% end %>
